@@ -360,6 +360,20 @@ WVPASSEQ "$(bup ls strip/latest/)" "a
 b
 d/
 f"
+bup tick
+WVPASS bup index -ux $D
+bup save --strip -n strip $D
+WVPASSEQ "$(bup ls strip/latest/)" "a
+b
+d/
+f"
+bup tick
+WVPASS bup index -ux $D
+bup save --strip -n strip $D
+WVPASSEQ "$(bup ls strip/latest/)" "a
+b
+d/
+f"
 
 WVSTART "strip-path"
 D=strip-path.tmp
